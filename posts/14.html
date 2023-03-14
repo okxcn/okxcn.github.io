@@ -8,7 +8,9 @@
     <meta name="description" content="
 
 
-">
+我们在之前讲过，分布式账本可以说是区块链的框架，每一个人都可以自由地参与进来，共同处理区块链中的数据，基于这一点，区块链实际上就是一个大的分布式计算网络。
+
+它并没有一个类似中央指挥室的东西来发号施令，整个网络是完全分散的，要依靠不同">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -448,6 +450,24 @@
                 <video width="100%" height="100%" controls>
 <source src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/08573310.mp4">
 </video>
+我们在之前讲过，分布式账本可以说是区块链的框架，每一个人都可以自由地参与进来，共同处理区块链中的数据，基于这一点，区块链实际上就是一个大的分布式计算网络。
+
+<p>它并没有一个类似中央指挥室的东西来发号施令，整个网络是完全分散的，要依靠不同的节点间，彼此交换信息、达成共识，才能统一行动，整个过程就像无领导小组讨论一样。</p>
+<p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-33.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p>
+<p>对此，有人就提出了疑问，万一有节点发送了错误的信息，干扰网络正常运行或者大家产生了分歧怎么办？于是，学者们便建立了一个模型，统一将这类用来描述分布式系统一致性的问题，称为拜占庭将军问题。</p>
+<p>所谓拜占庭将军问题是这样的：</p>
+<p>拜占庭帝国想要攻打一个国家，它派出了多支军队进行围攻，但敌国军事实力也很强，将军们必须在同一个时间，一起发动进攻才能获取胜利。</p>
+<p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-34.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p>
+<p>现在的问题在于，每个将军都分散在敌国四周，只能依靠通信兵骑马相互通信，确定进攻的时间，可是一方面通讯兵可能会在送信过程中被敌方击杀，另一方面根据不可靠消息，在这些将军中有叛徒的存在，叛徒可能会擅自变更进攻意向或者进攻时间，从而向其他将军传达虚假指令，影响他人判断。</p>
+<p>如果整个分布式网络相当于拜占庭帝国，而每个节点相当于里面的将军，那么在这种状态下，该怎么做才能保证网络中的全部节点对于某个事情达成一致？（即将军们在同一时间一起发起进攻，从而赢取战斗）这就是拜占庭将军问题。</p>
+<p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-35.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p>
+<p>所以简单来说，拜占庭将军描述的是，分布式网络会面临的两个问题：</p>
+<p>1）如何解决各个节点之间的同步问题。比如在没有叛徒情况下，将军 A 向其他将军传递进攻方案时（如：明日下午 2 点进攻），可能将军B也在传递进攻方案（如：明日下午 3点进攻）。</p>
+<p>2）如何解决恶意节点，故意发送错误信息干扰网络的运行的问题。比如在有叛徒情况下，叛徒会向不同的将军发出不同的进攻提议，干扰其他将军们达成一致。</p>
+<p>后来大家发现，想要在分布式网络中，让每一个节点都不出错是不可能的，于是就有人提出了“拜占庭容错”的观点来解决拜占庭将军的问题，这个解决办法就是信息的伪造或错误并不重要，只要诚实的将军数量大于总数的三分之二，即使有少部分不诚实的将军存在，整个系统也可以达成一致。</p>
+<p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-36.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p>
+<p>于是大家以此为基础，设计出了很多解决方案。</p>
+<p>区块链四大核心技术中的共识机制，就是为了解决这个问题，而诞生的一个方案，至于具体是如何解决的，请容小K君卖个关子，我们下节课再说。</p>
 
                 
             </div>
@@ -600,13 +620,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/14.html">
+                <a href="/posts/15.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="区块链60讲 第14集：什么是拜占庭将军问题？">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="区块链60讲 第15集：什么是共识机制？">
                         
-                        <span class="card-title">区块链60讲 第14集：什么是拜占庭将军问题？</span>
+                        <span class="card-title">区块链60讲 第15集：什么是共识机制？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
