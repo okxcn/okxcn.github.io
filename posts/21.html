@@ -4,8 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类, OKX">
-    <meta name="description" content="OKX">
+    <meta name="keywords" content="区块链60讲 第21集：什么是UTXO模型？, OKX">
+    <meta name="description" content="
+
+
+
+在上节课中，我们已经讲过了什么是双花问题，其中，双花问题的第一种情况，就是由于处理方在记账时因为同步存在延迟的问题，导致同一笔钱，被反复花了两次。所以，为了解决这种情况，一些区块链项目便在共识机制的基础上，引进了UTXO的账户机制。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类 | OKX</title>
+    <title>区块链60讲 第21集：什么是UTXO模型？ | OKX</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -359,152 +363,475 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                欧易
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "注册欧易交易所账户，领取价值高达60000$数字货币盲盒，享受20%交易手续费折扣",
-                            
-                                "一起来探索 Web3 领域，一起成长、学习、实现财富自由之路。",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">区块链60讲 第21集：什么是UTXO模型？</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/btc/">
+                                <span class="chip bg-color">btc</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE60%E8%AE%B2/">
+                                <span class="chip bg-color">区块链60讲</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%96%B0%E6%89%8B%E5%AD%A6%E9%99%A2/" class="post-category">
+                                新手学院
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-03-14
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <video width="100%" height="100%" controls>
+<source src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/0621315.mp4">
+</video>
+
+<p>在上节课中，我们已经讲过了什么是双花问题，其中，双花问题的第一种情况，就是由于处理方在记账时因为同步存在延迟的问题，导致同一笔钱，被反复花了两次。所以，为了解决这种情况，一些区块链项目便在共识机制的基础上，引进了UTXO的账户机制。</p>
+<p>所谓UTXO模型，简单来说，就是一种特殊的账户记账模型。它的中文意思叫作“未花费交易输出”，它跟银行传统的账户模型有一个很大的区别就是，这种模型只记录交易本身，而不记录交易的结果。</p>
+<p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/60%E8%AE%B2212.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p>
+<p>像传统的银行账户模型，它是直接记录结果的，比如，我账户里有1万块钱，我要转给你3000，就会从我账户里扣除3000，我的账户余额是7000, 你的账户里增加3000。</p>
+<p>但UTXO模型不是这样记录的，它会把整个交易过程记录下来，原理是这样的：还是假设我账户里有1万块钱，我要转给你3000。UTXO在记录的时候，它会先记做这1万块钱全部转了出来，然后再记录有3000块转到了你的账户里，又有7000块从我的账户转到我自己的账户。</p>
+<p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/60%E8%AE%B2213.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p>
+<p>整个过程种，它会把牵扯到的账户资金、交易地址，转账资金、资金来源等信息全部记下。以此就能够追踪到每一笔交易的最初来源。所以，UTXO的本质其实是一种流水记账，会把交易的过程记录下来。</p>
+<p>这种模型的好处在于，它让每次交易过程，都被记录得明明白白，并且可以追溯每笔资金的源头。也正是基于这个特点，UTXO可以和共识机制一起解决双花问题。</p>
+<p>区块链解决第一种类型的双花问题，同样借鉴了传统银行的方式，会按照顺序一笔一笔处理<a target="_blank" rel="noopener" href="https://www.okx.com/cn/learn/novice-general-guide-2-cn?src=from:CNacademy_3">交易</a>。当节点在处理一笔交易的时候，会先通过UTXO模型检验交易资金存不存在，然后追溯这笔交易的源头，确定没问题后，就会通过共识机制进行全网广播，记录到链上。</p>
+<p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/60%E8%AE%B2214.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p>
+<p>如果有人想要用同一笔钱支付两次，区块链网络只会确认先接受到的那一笔，之后那笔<a target="_blank" rel="noopener" href="https://www.okx.com/cn/learn/novice-general-guide-2-cn?src=from:CNacademy_3">交易</a>，节点会在查询UTXO时发现，这笔资金已经被支付出去，并不存在于你的账户中，从而拒绝交易。以此解决了第一种情况的双花问题。</p>
+<p>不过由规则内引发的双花问题是UTXO也没有办法解决的。所谓规则内引发的双花问题，就是利用共识机制的规则本身，对已经记好账的交易进行篡改，常见的就是51%算力攻击。比如有一个采用POW共识机制的<a target="_blank" rel="noopener" href="https://www.okx.com/cn/learn/blockchain-cn?src=from:CNacademy_3">区块链</a>，因为整个网络的人数比较少，有一个节点掌握了整个网络51%的算力，这个时候，他就可以先进行一笔交易，等交易完成后，再通过共识机制篡改之前的那笔交易记录，否定之前的那笔交易，让已经花过的钱又重新回到自己账户，再次使用。</p>
+<p>而这种情况的双花问题，只能通过提高全网算力的方式来解决，所以，在区块链中，使用的人越多，全网算力越高，整个网络也就越安全。</p>
+<p>总的来说，UTXO不仅可以协助共识机制解决区块链中的第一类双花问题，更赋予了区块链可追源的特点，区块链也能以此为基础，保证每笔交易的真实与可靠。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">穹顶社区</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://okxcn.github.io/posts/21.html">http://okxcn.github.io/posts/21.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">穹顶社区</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/btc/">
+                                    <span class="chip bg-color">btc</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE60%E8%AE%B2/">
+                                    <span class="chip bg-color">区块链60讲</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    $(function () {
+        $('.tabs').tabs();
+    });
 </script>
 
-
+            
+        </div>
     </div>
-</div>
-
-<main class="content">
 
     
 
-<div id="category-cloud" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
-            <div class="tag-chips">
-                
-                
-                
-                <a href="/categories/%E6%96%B0%E6%89%8B%E5%AD%A6%E9%99%A2/" title="新手学院: 26">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F9EBEA;">新手学院
-                        <span class="tag-length">26</span>
-                    </span>
+            <div class="card">
+                <a href="/posts/21.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="区块链60讲 第21集：什么是UTXO模型？">
+                        
+                        <span class="card-title">区块链60讲 第21集：什么是UTXO模型？</span>
+                    </div>
                 </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%96%B0%E6%89%8B%E5%AD%A6%E9%99%A2/" class="post-category">
+                                    新手学院
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
                 
-                
-                <a href="/categories/%E4%BA%A4%E6%98%93%E6%89%80%E6%B3%A8%E5%86%8C/" title="交易所注册: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F5EEF8;">交易所注册
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/btc/">
+                        <span class="chip bg-color">btc</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE60%E8%AE%B2/">
+                        <span class="chip bg-color">区块链60讲</span>
+                    </a>
+                    
+                </div>
                 
             </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/20.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="区块链60讲 第20集：什么是双花问题？">
+                        
+                        <span class="card-title">区块链60讲 第20集：什么是双花问题？</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%96%B0%E6%89%8B%E5%AD%A6%E9%99%A2/" class="post-category">
+                                    新手学院
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/btc/">
+                        <span class="chip bg-color">btc</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE60%E8%AE%B2/">
+                        <span class="chip bg-color">区块链60讲</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
         </div>
     </div>
 </div>
 
+<!-- TOC 悬浮按钮. -->
 
-    
-    <style type="text/css">
-    #category-radar {
-        width: 100%;
-        height: 360px;
-    }
-</style>
-
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="category-radar" class="card-content"></div>
-    </div>
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
 </div>
 
-<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    let radarChart = echarts.init(document.getElementById('category-radar'));
 
-    
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
 
-    let option = {
-        title: {
-            left: 'center',
-            text: '文章分类雷达图',
-            textStyle: {
-                fontWeight: 500,
-                fontSize: 22
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
             }
-        },
-        tooltip: {},
-        radar: {
-            name: {
-                textStyle: {
-                    color: '#3C4858'
-                }
-            },
-            indicator: [{"name":"新手学院","max":27},{"name":"交易所注册","max":27}],
-            nameGap: 5,
-            center: ['50%','55%'],
-            radius: '66%'
-        },
-        series: [{
-            type: 'radar',
-            color: ['#3ecf8e'],
-            itemStyle: {normal: {areaStyle: {type: 'default'}}},
-            data : [
-                {
-                    value : [26,1],
-                    name : '文章分类数量'
-                }
-            ]
-        }]
-    };
+        });
 
-    radarChart.setOption(option);
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
 </script>
 
     
 
 </main>
+
+
 
 
     <footer class="page-footer bg-color">

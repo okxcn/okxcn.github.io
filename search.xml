@@ -4,6 +4,276 @@
   
     
     <entry>
+      <title>区块链60讲 第21集：什么是UTXO模型？</title>
+      <link href="/posts/21.html"/>
+      <url>/posts/21.html</url>
+      
+        <content type="html"><![CDATA[<video width="100%" height="100%" controls><source src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/0621315.mp4"></video><p>在上节课中，我们已经讲过了什么是双花问题，其中，双花问题的第一种情况，就是由于处理方在记账时因为同步存在延迟的问题，导致同一笔钱，被反复花了两次。所以，为了解决这种情况，一些区块链项目便在共识机制的基础上，引进了UTXO的账户机制。</p><p>所谓UTXO模型，简单来说，就是一种特殊的账户记账模型。它的中文意思叫作“未花费交易输出”，它跟银行传统的账户模型有一个很大的区别就是，这种模型只记录交易本身，而不记录交易的结果。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/60%E8%AE%B2212.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>像传统的银行账户模型，它是直接记录结果的，比如，我账户里有1万块钱，我要转给你3000，就会从我账户里扣除3000，我的账户余额是7000, 你的账户里增加3000。</p><p>但UTXO模型不是这样记录的，它会把整个交易过程记录下来，原理是这样的：还是假设我账户里有1万块钱，我要转给你3000。UTXO在记录的时候，它会先记做这1万块钱全部转了出来，然后再记录有3000块转到了你的账户里，又有7000块从我的账户转到我自己的账户。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/60%E8%AE%B2213.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>整个过程种，它会把牵扯到的账户资金、交易地址，转账资金、资金来源等信息全部记下。以此就能够追踪到每一笔交易的最初来源。所以，UTXO的本质其实是一种流水记账，会把交易的过程记录下来。</p><p>这种模型的好处在于，它让每次交易过程，都被记录得明明白白，并且可以追溯每笔资金的源头。也正是基于这个特点，UTXO可以和共识机制一起解决双花问题。</p><p>区块链解决第一种类型的双花问题，同样借鉴了传统银行的方式，会按照顺序一笔一笔处理<a href="https://www.okx.com/cn/learn/novice-general-guide-2-cn?src=from:CNacademy_3">交易</a>。当节点在处理一笔交易的时候，会先通过UTXO模型检验交易资金存不存在，然后追溯这笔交易的源头，确定没问题后，就会通过共识机制进行全网广播，记录到链上。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/60%E8%AE%B2214.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>如果有人想要用同一笔钱支付两次，区块链网络只会确认先接受到的那一笔，之后那笔<a href="https://www.okx.com/cn/learn/novice-general-guide-2-cn?src=from:CNacademy_3">交易</a>，节点会在查询UTXO时发现，这笔资金已经被支付出去，并不存在于你的账户中，从而拒绝交易。以此解决了第一种情况的双花问题。</p><p>不过由规则内引发的双花问题是UTXO也没有办法解决的。所谓规则内引发的双花问题，就是利用共识机制的规则本身，对已经记好账的交易进行篡改，常见的就是51%算力攻击。比如有一个采用POW共识机制的<a href="https://www.okx.com/cn/learn/blockchain-cn?src=from:CNacademy_3">区块链</a>，因为整个网络的人数比较少，有一个节点掌握了整个网络51%的算力，这个时候，他就可以先进行一笔交易，等交易完成后，再通过共识机制篡改之前的那笔交易记录，否定之前的那笔交易，让已经花过的钱又重新回到自己账户，再次使用。</p><p>而这种情况的双花问题，只能通过提高全网算力的方式来解决，所以，在区块链中，使用的人越多，全网算力越高，整个网络也就越安全。</p><p>总的来说，UTXO不仅可以协助共识机制解决区块链中的第一类双花问题，更赋予了区块链可追源的特点，区块链也能以此为基础，保证每笔交易的真实与可靠。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 新手学院 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> btc </tag>
+            
+            <tag> 区块链60讲 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>区块链60讲 第20集：什么是双花问题？</title>
+      <link href="/posts/20.html"/>
+      <url>/posts/20.html</url>
+      
+        <content type="html"><![CDATA[<video width="100%" height="100%" controls><source src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/0619516.mp4"></video><p>之前的课程，我们已经讲过了区块链的四大核心技术都有哪些，它们共同决定了区块链的整个基础框架。可是在区块链网络中，还有一些问题是四大核心技术也没有办法完全解决的，比如网络拥堵问题、效率问题等等。而今天，我们要说的就是其中的一种，也就是双花问题。</p><p>所谓双花问题，顾名思义，就是一笔钱被重复花了两次。比如，我们微信钱包里有100块钱，我们先去饭店吃了顿饭，结果微信出了bug，这一笔钱并没有被银行同步，还留在钱包里，于是我们又能拿着同样的100块钱去看场电影，这就属于双花问题。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/60%E8%AE%B22.jpg?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>一般来说，双花问题分为两种情况：一种是记账前双花，比如同一笔钱，因为银行同步延迟的问题，被多次使用，像我们刚才举的例子就是这种情况；另一种是记账后的双花，一笔钱花出去，银行已经记账，但如果你攻击银行，从银行账本上删除了这笔花费，就可以再花一次了，即双花。</p><p>那在现实生活和区块链中，我们该如何解决双花问题呢？</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/60%E8%AE%B23.jpg?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>在现实生活中，作为收款者来说，比如商店老板，防范第一种双花很容易，不以付款者的交易记录为依据，只有确认自己账户上钱到账才交付商品。比如用微信支付，不仅要看用户出示的手机支付页面，也要看自己的手机上是否收到。当然，如果很小额的交易，生意又忙，用户也是街坊邻里，只看支付页面也可以，这个小风险商店可以承担。</p><p>在区块链应用中，防范未记账前的双花也与之类似，最好的解决方案也是等记账后，再完成交易，大额交易一般都是走这种路径。不过，如果金额很小，人又熟，交易是可以不记入区块链的，即没有记账的情况下，也可以完成支付。这叫“零确认支付”，只不过这种方式，收款方是要承担被双花的风险。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/60%E8%AE%B24.png.jpg?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>而防范第二种双花就比较难了。在生活中，比如微信已经记了账，但黑客攻击了微信的服务器，商户收款的交易记录一旦丢失，商户自然就受到了损失，付款者又可以使用原来的这笔钱。不过，这种情况极少出现，既然要记账，那一定是非常小心保存账本的。</p><p>区块链应用也类似，整个区块链技术的核心就是保障账本的安全，记了账就不能被双花。但安全不是绝对的，即使记了账，仍然有可能被双花。因为，区块链应用不是依靠中央银行这样的机构的权威来保障账本安全的，而是依靠分布世界各地的节点都保存统一份的账本，并且由全世界的矿工用算力来竞争记账，产生完全一致的新账页的。</p><p>当有人掌握了全网51%以上的算力时，就能够将刚刚记过的账页作废，把里面的一笔花费恢复成没被花掉的状态。这就是记账后的双花了，这种攻击方法叫“51%攻击”。这种双花相对于记账前的双花比较难实现，因为掌握51%算力需要很多钱。但如果双花的收益足够大，攻击仍然是有可能的。怎么办呢？</p><p>解决的办法是，等待更多确认。51%的算力要作废最新账页，其成功概率是51%，但作废连续两个新账页的概率就是51%*51%&#x3D;26%，作废3个的概率是13.3%，作废6个的概率只有0.46%了。如果攻击者没有掌握51%的算力，只掌握20%的算力，那么攻击成功的概率就只有0.0064%了。</p><p>这样，问题就简单了。商户可以根据交易金额的大小来决定如何防范双花。</p><p>如果交易金额很小，比如卖支铅笔，完全可以接受零确认，对用户既省时又贴心。万一双花也不在乎。如果交易金额大一些，比如卖件衣服，那建议等待一个确认就可以了。不会有黑客为了你一套衣服动用51%的算力发起攻击的。如果交易金额很大，比如买钻石，那就要小心了。要根据全网算力的成本估算一下需要多少个确认，金额越大，需要的确认数就越多。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/60%E8%AE%B25.jpg?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>比如这个区块链是10分钟确认一次，全网51%的算力每10分钟的成本是10万元。你卖的钻石价值100万元。那么你至少要10个确认以上才能交付钻石。最好是20个以上确认。</p><p>总之，预防双花攻击，一个基本的原理就是，让攻击者赔钱的概率远远高于你被双花的概率。</p><p>当然，为了预防双花问题，区块链本身从技术方面，也在共识机制的基础上，引入了一些其他技术，比如时间戳和UTXO模型。通过它们，进一步提高区块链的记账安全性、以及双花的作恶成本。至于它们具体是如何解决的，容小K君卖个关子，我们下节课再说~</p><p>注：这些例子数据都是为了简便给的估值，真实的攻击成本收益分析非常复杂。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 新手学院 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> btc </tag>
+            
+            <tag> 区块链60讲 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>区块链60讲 第19集：四大核心技术的作用是什么？</title>
+      <link href="/posts/19.html"/>
+      <url>/posts/19.html</url>
+      
+        <content type="html"><![CDATA[<video width="100%" height="100%" controls><source src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/0616491.mp4"></video><p>简单来说，区块链的四大核心技术，分别是分布式账本、共识机制、密码学以及智能合约，它们在区块链中分别起到了数据的存储、数据的处理、数据的安全、以及数据的应用作用。具体它们的关系是这样的：</p><p>首先，分布式账本构建了区块链的框架，它本质是一个分布式数据库，当一笔数据产生后，经大家处理，就会储存在这个数据库里面，所以分布式账本在区块链中起到了数据储存的作用。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-57.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>其次，因为分布式账本去中心化的特点，决定了区块链网络是一个分布式的结构，每个人都可以自由地加入其中，共同参与数据的记录。但与此同时，就衍生出来了令人头疼的“拜占庭将军问题”，即网络中参与的人数越多，全网也就越难以达成统一。</p><p>于是就需要另一套机制来协调全节点账目保持一致，共识机制就制定了一套规则，明确每个人处理数据的途径，并通过争夺记账权的方式来完节点间的意见统一，最后谁取得记账权，全网就用谁处理的数据。所以共识机制在区块链中起到了统筹节点行为、明确数据处理的作用。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/image-101.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>此外，数据进入分布式数据库中，也不是单纯地打包进来就没事了，底层的数据构架则是由区块链密码学来决定的。</p><p>打包好的数据块，会通过密码学中的哈希函数处理成一个链式的结构，后一个区块包含前一个区块的哈希值，因为哈希算法具备单向性、抗篡改等特点，所以只要在区块链网络中，数据一旦上链就不可篡改、且可追溯。</p><p>另外你的账户也会通过非对称加密的方式进行加密，进而保证了数据的安全，验证了数据的归属。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-58.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>最后，可以在分布式账本的基础上，搭建应用层面的智能合约，当我们想要解决一些信任问题，可以通过智能合约，将用户之间的约定由代码的形式，将条件罗列清楚，并通过程序来执行，而区块链中的数据，则可以通过智能合约进行调用。所以智能合约在区块链中起到了数据的执行与应用的功能。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/image-102.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>总的来说，四大核心技术在区块链中各有各的作用，它们共同构建了区块链的基础，而我们也有幸身处其中，迎接一个属于区块链的时代浪潮。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 新手学院 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> btc </tag>
+            
+            <tag> 区块链60讲 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>区块链60讲 第18集：什么是智能合约？</title>
+      <link href="/posts/18.html"/>
+      <url>/posts/18.html</url>
+      
+        <content type="html"><![CDATA[<video width="100%" height="100%" controls><source src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/0614535.mp4"></video><p>智能合约是区块链的核心技术之一，这个概念最开始是在1994年由知名计算机学家、密码学家尼克·萨博提出，他定义：智能合约就是一套以数字形式定义的承诺，旨在以信息化方式传播、验证或执行合同的计算机协议，包括合约的参与方都可以在上面执行。</p><p>简单来说，智能合约就是一种把我们生活中的合约数字化，当满足一定条件后，可以由程序自动执行的技术。就好比你跟我做了一个约定，我们定好奖惩措施，然后将约定通过代码的形式录入区块链中，一旦触发约定的条件，就会有程序来自动执行，这就是智能合约。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-52-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>虽然，智能合约的概念，提出的时间很早，可由于技术以及其他的一些原因，一直没有大规模落地。哪怕到了今天，智能合约已经在互联网中有很多的应用，比如自动还款，无人售货等等，但也多是局限在用户和机构之间的智能合约，用户和用户之间的智能合约却几乎没有。</p><p>归根到底，阻碍智能合约发展的原因还是“信任”问题。我们会发现，尽管互联网、工业等各种技术都很发达，但这些技术本身是用来处理物物之间的关系，解决的还是效率问题。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-53-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>而我们在生活中，只要谈起合约，大多数都是陌生人跟陌生人之间存在这种需求，而且多是跟钱有关系。如果我们相互不认识，在没有第三方机构做担保的情况下，我们做了个约定，我把钱打给你，结果你毁约、不承认怎么办？这就牵扯到里用户之间的信任问题。</p><p>而这个问题是通过互联网、工业等技术本身没办法解决的，于是才引入了第三方机构进来，造成目前智能合约多是局限在机构与用户之间的状况。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-54-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>直到区块链技术的出现，才使智能合约在用户与用户之间的大规模落地成为可能。为什么这么说？因为区块链有很多特点，比如去中心化、数据不可篡改等，这些特点与智能合约十分契合。假如我们之间通过区块链建立智能合约，你可以不信任我，但我们的合约数据，一切都会透明地记录在链上，数据可追踪、不可被篡改，这样就可以从技术的角度去解决陌生人间的信任问题。</p><p>也正是基于这一点，久而久之，智能合约就成了区块链的核心技术之一，作为区块链的一个应用重点。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-55-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>智能合约有很多的优势，第一、它去掉了中介，可以完全依托技术让用户之间自主建立合约；第二、透明公平，智能合约会用代码将条件写得清清楚楚，并记录在区块链上，整个过程完全由程序执行，连包括编写这个代码的开发者都不能篡改；第三、灵活，让用户之间可以自由地建立合约，哪怕是与一个陌生的外国人，也可以通过智能合约建立联系。</p><p>总的来说，智能合约是区块链的核心技术之一，不仅在区块链中起到了执行的作用，它更是区块链的一个应用发展方向，拓宽了区块链的使用场景，正是因为它的存在，才使区块链有了一个更加广阔的舞台。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 新手学院 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> btc </tag>
+            
+            <tag> 区块链60讲 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>区块链60讲 第17集：什么是PoS共识机制</title>
+      <link href="/posts/17.html"/>
+      <url>/posts/17.html</url>
+      
+        <content type="html"><![CDATA[<video width="100%" height="100%" controls><source src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/0612193.mp4"></video>所谓PoS机制，全称是Proof of Stake，也就是权益证明。它是除PoW机制外的另一类主流共识机制。<p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-50.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>我们都知道，PoW机制有一些缺点，比如挖矿时会浪费大量的资源、整个网络处理效率较低等等。为了解决这些问题，有人就在2011年提出：“可不可以在PoW的基础上，重新设计一个机制？既能保留PoW的优势，又能解决它的问题”。于是PoS共识机制就应运而生，所以，PoS在共识层面上借鉴很多PoW的设计，如区块设计，矿工选择，分叉处理，交易验证等。</p><p>PoS机制主要是通过权益记账的方式，来解决网络的效率低下、资源浪费和各节点的一致性问题，简单来说，就是谁拥有的权益多谁说了算。它的原理是这样的：</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-51.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>PoW之所以有种种问题，主要是因为人人都可以自由地成为节点，而每个节点又通过竞争的方式参与数据处理。一笔数据要经过这么多人的处理，肯定会造成资源浪费和效率低下。</p><p>PoS之所以能解决这个问题，是因为PoS提高了节点处理数据的门槛，它规定：虽然每个人都可以自由地加入进来成为节点，但只有满足一定条件的节点，比如抵押一定数量的代币，才有资格成为验证节点，也就是候选人。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/image-95.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>成为候选人后，系统会通过算法，选择一部分人作为出块节点，每隔一段时间，会重新选择，选取过程中，算法会保证选取的结果不能被操纵，也不能被预测，从而避免网络被某一节点所控制。只有成为出块节点，也就是矿工，才能参与数据的处理、争夺记账的权利。</p><p>所以说PoW是人人都可以成为矿工，而PoS则是通过一系列筛选，才能成为矿工。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/image-96.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>PoS具体的竞争方式是，谁持有的代币多，谁就越容易获得出块的权利。然后通过全网广播，他打包的区块经其他矿工验证，确认没问题后，这个区块就会连接到链上，并同步在全网其他节点的小账本中，同时他获得相应的代币奖励。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/image-97.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>整个流程简单总结起来就是：持币人将代币抵押，获得出块的机会，然后PoS共识中会通过选举算法，按照持币量比例，从中选出出块矿工。矿工在指定高度完成打包交易，生成新区块，并广播区块，广播的区块经过验证人验证交易，通过验证后，区块得到确认。这样一轮PoS的共识过程就完成了。</p><p>PoS机制的优势在于，它解决了PoW中的资源浪费、效率低下等问题。但它同样也有一些缺点。比如，PoS机制中初始的代币分发比较模糊，如果初始代币分发不下去，就很难形成之后的股权证明。再比如，选举算法存在被攻击的可能，一旦攻击成功，整个系统就会被操控。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/image-98.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>但是PoS机制最大的问题，还是容易造成强者恒强的局面，谁的代币越多，谁就越容易获得更多的代币，理论上谁能掌握51%的代币，谁就能掌控整个网络，所以，它的去中心化程度要弱一些。</p><p>总的来说，PoW与PoS都是目前主流的共识机制，共同引领着区块链技术的落地与进步，但他们或多或少，都存在一些不可避免的问题，希望未来的某一天，它们能克服自身问题，真正使区块链大规模商业化，而我们也能迎来一个更好的去中心化互联网。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 新手学院 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> btc </tag>
+            
+            <tag> 区块链60讲 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>区块链60讲 第16集：什么是PoW共识机制</title>
+      <link href="/posts/16.html"/>
+      <url>/posts/16.html</url>
+      
+        <content type="html"><![CDATA[<video width="100%" height="100%" controls><source src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/0859151.mp4"></video>在之前我们已经讲过，共识机制是区块链网络中，所有节点都要遵守的一种规则，当前主流的共识机制分为两种，一种是PoW共识机制，另一种则是PoS共识机制，今天我们就来介绍一下，什么是PoW共识机制。<p>所谓PoW机制，全称是Proof of Work，也就是工作量证明。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-44-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>最开始，这个技术是被用来解决滥发垃圾邮件的问题（系统要求发送者，每发送一封邮件，都要做一定的工作量证明行为，从而提高大量发送垃圾邮件的成本）不过后来，中本聪发现这个技术能有效解决“拜占庭将军问题”，于是便把它引进了比特币区块链网络中，慢慢的，PoW机制就变成当今区块链中的主流之一。</p><p>简单来说，PoW机制主要是通过竞争记账的方式，来解决区块链网络中各个节点的一致性问题，它的原理是这样的：</p><p>我们都知道，区块链中的每个节点都能自由地参与数据处理，也就是打包区块，为了保证网络中的各个节点能达成一致，PoW就规定，当一笔交易产生后，每一个想要记账的节点，都需要依靠自己的计算能力与他人竞争、争夺记账的权力。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-45-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>竞争的方式，是每过大约10分钟的时间，就会进行一轮算力竞赛，参与的节点通过算力不断寻找一个随机数Nonce。谁先找到满足一定条件的Nonce值，且通知全网、获得认可，谁就能获得记账的权力。</p><p>最终，获得记账权的人，他所打包的区块会连接到区块链的链上，同时他处理的数据，也会被全网的其他节点记入各自的小账本中。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-46-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>PoW机制在比特币网络中，就是比特币的挖矿原理，它会给获得记账权的节点一定的比特币作为奖励，从而激励更多的人加入进来。</p><p>PoW机制的优势在于，它让每个节点的算力都加入进了网络的交易认证中，基于PoW的竞争机制，想要在区块链网络中作恶，必须掌握全网绝对的算力，不然都要面临来自于其他人的算力竞争。理论上，除非有人能掌握全网51%以上的算力，否则整个网络的任何东西都是无法被篡改的。这样使得网络的去中心化性更强、节点的作恶成本更高。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-47-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>所以，加入的人越多，全网算力就越大，也就越难被人掌握超过51%的算力，整个网络也就越安全。</p><p>当然，PoW机制不是完美的，它为了保证网络的强去中心化，付出了很多的代价。比如被大家诟病的浪费大量资源、和处理性能较低。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-48-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>因为PoW机制中，每个人都可以自由地加入网络成为节点，进行数据处理，而且每个节点处理数据都要通过算力竞争的方式，争夺记账权。想一想，一笔数据要经过网络每个人查看，而且为了一笔数据，每个人还要花费大量的算力，自然而然就造成了资源浪费与效率低下。</p><p>不过，瑕不掩瑜，PoW机制也确实使去中心化的互联网落地成为可能。或许未来，随着技术进步，共识机制能够打破去中心化、效率、安全的不可能三角，让我们拭目以待吧。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 新手学院 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> btc </tag>
+            
+            <tag> 区块链60讲 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>区块链60讲 第15集：什么是共识机制？</title>
+      <link href="/posts/15.html"/>
+      <url>/posts/15.html</url>
+      
+        <content type="html"><![CDATA[<video width="100%" height="100%" controls><source src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/0947009.mp4"></video>我们上节课讲过，分布式网络必须要解决的一个至关重要的问题，就是“拜占庭将军问题”，而区块链作为分布式网络中的典型代表，则采用了一系列新型的技术，来解决这个问题，这个技术就是共识机制。<p>简单来说，共识机制就是一种每个节点都必须遵守的规则。它同样是区块链的四大核心技术之一。共识机制在区块链网络中主要起到了协调全节点账目保持一致的作用。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-38.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>为什么这么说？我们都知道区块链是去中心化的，基于分布式账本技术，每个人都可以自由地加入进来，成为其中的一个节点。但想一想，绝对的自由，必然会带来绝对的混乱，如果每个人都自由地在网络中处理数据，整个网络会发生什么样的情况？</p><p>比如，我作为一个节点加入进来，这个时候网络中产生了一笔数据，我是以方式A处理的，而另一个人是以方式B处理的，我们的处理方式不同，权限又都平等，那到底用谁处理的数据呢？一旦我们两个无法达成共识，整个网络就很容易发生分歧，产生混乱。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-39.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>此外，在这种环境下，我和其他节点相互不认识，又没有一个中心化的权威机构来做担保，我怎么确定其他节点处理的数据没问题？</p><p>所以说，在去中心化的环境下，没有一个比较中心化的节点能做决策，协助网络运行，网络就很难在自由的环境下，自主运行。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-40.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>为了解决这个问题，中本聪就想了个办法：虽然整个网络中没有一个中心化的节点能做决策，但是我可以设立一套规则，让这个规则成为一个中心化的机制，每个节点必须遵守，帮助网络自主运行，就好比法律约束社会的每个人一样。</p><p>这个规则内容要包含两点，第一是解决分布式账本中，每个节点怎么记账的问题；第二是解决不同节点间，如何交换信息、达成共识的问题。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-41.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>具体是依赖某种方式，确定谁取得区块链中的记账权，谁取得了记账权，整个网络就用谁处理好的数据，并且这个人还可以获取打包区块的奖励，此外，谁如果意图危害网络，也会获得一定的惩罚。</p><p>这样就能在一个没有中心化节点存在的情况下，既能让每个节点比较统一地做一件事，又能保证每个节点的小数据库之间数据一致。从而令分布式网络，比较有序地去运行。</p><p>总的来说，共识机制就是一种制度，能够约束去中心化网络中的每一个分散的节点，维护系统的运作顺序与公平性，使每一个互不相干的节点能够验证、确认网络中的数据，进而产生信任，达成共识。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-42.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>如果把区块链当成一个社会，那么共识机制就是这个世界中的法律，人人都得遵守，不仅解决了信任的问题，更维护着整个区块链社会的正常运行。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 新手学院 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> btc </tag>
+            
+            <tag> 区块链60讲 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>区块链60讲 第14集：什么是拜占庭将军问题？</title>
+      <link href="/posts/14.html"/>
+      <url>/posts/14.html</url>
+      
+        <content type="html"><![CDATA[<video width="100%" height="100%" controls><source src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/08573310.mp4"></video>我们在之前讲过，分布式账本可以说是区块链的框架，每一个人都可以自由地参与进来，共同处理区块链中的数据，基于这一点，区块链实际上就是一个大的分布式计算网络。<p>它并没有一个类似中央指挥室的东西来发号施令，整个网络是完全分散的，要依靠不同的节点间，彼此交换信息、达成共识，才能统一行动，整个过程就像无领导小组讨论一样。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-33.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>对此，有人就提出了疑问，万一有节点发送了错误的信息，干扰网络正常运行或者大家产生了分歧怎么办？于是，学者们便建立了一个模型，统一将这类用来描述分布式系统一致性的问题，称为拜占庭将军问题。</p><p>所谓拜占庭将军问题是这样的：</p><p>拜占庭帝国想要攻打一个国家，它派出了多支军队进行围攻，但敌国军事实力也很强，将军们必须在同一个时间，一起发动进攻才能获取胜利。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-34.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>现在的问题在于，每个将军都分散在敌国四周，只能依靠通信兵骑马相互通信，确定进攻的时间，可是一方面通讯兵可能会在送信过程中被敌方击杀，另一方面根据不可靠消息，在这些将军中有叛徒的存在，叛徒可能会擅自变更进攻意向或者进攻时间，从而向其他将军传达虚假指令，影响他人判断。</p><p>如果整个分布式网络相当于拜占庭帝国，而每个节点相当于里面的将军，那么在这种状态下，该怎么做才能保证网络中的全部节点对于某个事情达成一致？（即将军们在同一时间一起发起进攻，从而赢取战斗）这就是拜占庭将军问题。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-35.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>所以简单来说，拜占庭将军描述的是，分布式网络会面临的两个问题：</p><p>1）如何解决各个节点之间的同步问题。比如在没有叛徒情况下，将军 A 向其他将军传递进攻方案时（如：明日下午 2 点进攻），可能将军B也在传递进攻方案（如：明日下午 3点进攻）。</p><p>2）如何解决恶意节点，故意发送错误信息干扰网络的运行的问题。比如在有叛徒情况下，叛徒会向不同的将军发出不同的进攻提议，干扰其他将军们达成一致。</p><p>后来大家发现，想要在分布式网络中，让每一个节点都不出错是不可能的，于是就有人提出了“拜占庭容错”的观点来解决拜占庭将军的问题，这个解决办法就是信息的伪造或错误并不重要，只要诚实的将军数量大于总数的三分之二，即使有少部分不诚实的将军存在，整个系统也可以达成一致。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/image-36.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>于是大家以此为基础，设计出了很多解决方案。</p><p>区块链四大核心技术中的共识机制，就是为了解决这个问题，而诞生的一个方案，至于具体是如何解决的，请容小K君卖个关子，我们下节课再说。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 新手学院 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> btc </tag>
+            
+            <tag> 区块链60讲 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>区块链60讲 第14集：什么是拜占庭将军问题？</title>
+      <link href="/posts/14.html"/>
+      <url>/posts/14.html</url>
+      
+        <content type="html"><![CDATA[<video width="100%" height="100%" controls><source src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/08573310.mp4"></video>]]></content>
+      
+      
+      <categories>
+          
+          <category> 新手学院 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> btc </tag>
+            
+            <tag> 区块链60讲 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>区块链60讲 第13集：什么是分布式账本？</title>
+      <link href="/posts/13.html"/>
+      <url>/posts/13.html</url>
+      
+        <content type="html"><![CDATA[<video width="100%" height="100%" controls><source src="https://static.coinall.ltd/cdn/assets/plugins/2020/02/0856203.mp4"></video>分布式账本是区块链的四大核心技术之一，如果说密码学是区块链的基石，那么分布式账本就是区块链的骨架。简单来说，分布式账本就是一种数据存储的技术，是一个去中心化的分布式数据库。<p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-26-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>注意，这里面有两个点需要解释一下，一个是去“中心化”，另一个是“分布式”。</p><p>先说“分布式”，分布式的意思就是把数据分散开来储存。像很多互联网公司早期的时候，会把我们的信息都存储在一个大的数据库里，数据信息都比较集中，属于集中式的数据库，一旦这个数据库发生问题，就会出现宕机、无法使用等严重后果。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-27-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>后来这些公司一看，这样不行，风险太大了。于是把数据分散到多个数据库中，共同储存数据，哪怕其中的一个出现问题，其他的数据库也能够顶替它继续运行，保证整个公司产品的正常工作。而这种把数据分散储存的技术，就是分布式数据库。</p><p>当然，现在几乎所有的公司采用的都是分布式数据库。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-28-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>区块链的分布式账本，也同样是一个分布式数据库。可能就有小伙伴要问了，那区块链的分布式账本和巨头公司采用的分布式数据库有什么区别呢？</p><p>这就要讲第二点“去中心化”了，区块链的分布式账本是更加特殊的一种分布式数据库，而它与传统巨头使用的分布式数据库区别在于，区块链是去中心化的，传统巨头是中心化的。</p><p>我们举个例子，假如把数据库比作是一个账本，传统巨头使用的中心化数据库，就相当于这个账本有很多个备份，分散开来、一起储存数据，但是不管有多分散，所有的账本都是传统的巨头公司自己一个人去维护、管理数据，其他人是没有权限进去的。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-29-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>用户们要想查看历史数据，都得接入它们的中心服务器，发送请求。一旦这些中心化的巨头想要拿你的数据做些什么时，你也无能为力。</p><p>而区块链使用的去中心化数据库，它是由一个个数据库连接起来，形成一个大的分布式数据库，每个数据库权限相同，都可以查看、储存所有的数据。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-30-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>跟中心化数据库比起来，区块链的分布式账本好比把“账本”的维护权力也分散开来，账本不再集中在巨头公司一个人的手中，而是集中在每一个人手中。每个人权限相同，都能手握一份”账本”，每笔交易大家共同记录，过一段时间，大家聚在一起对一下账本，一旦有谁篡改历史记录，立马就能被大家发现。</p><p>此外，这个账本对每个人都完全开放，如果你想参与进来，只要通过区块链网络的许可，就可以成为其中的一个节点。</p><p><img src="https://static.coinall.ltd/cdn/assets/plugins/2022/01/image-31-edited.png?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p><p>分布式账本带来的好处，不仅仅是避免了单点故障，降低了网络遭到黑客攻击或信息丢失的几率，更赋予了区块链去中心化的特点，防止数据都集中在中心化巨头手中、巨头拿你数据作恶的情况出现，使用户“自己控制自己的数据，自己决定数据的用途”成为现实。</p><p>总的来说，分布式账本就像是区块链的灵魂。在今天这样一个大数据时代，中心化巨头数据作恶的情况比比皆是，希望区块链能像个勇士一样，披荆斩棘，为现在数据乱象，画上一个句号。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 新手学院 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> btc </tag>
+            
+            <tag> 区块链60讲 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>区块链60讲 第12集：区块链中的密码学（下）</title>
       <link href="/posts/12.html"/>
       <url>/posts/12.html</url>

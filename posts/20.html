@@ -4,8 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类, OKX">
-    <meta name="description" content="OKX">
+    <meta name="keywords" content="区块链60讲 第20集：什么是双花问题？, OKX">
+    <meta name="description" content="
+
+
+
+之前的课程，我们已经讲过了区块链的四大核心技术都有哪些，它们共同决定了区块链的整个基础框架。可是在区块链网络中，还有一些问题是四大核心技术也没有办法完全解决的，比如网络拥堵问题、效率问题等等。而今天，我们要说的就是其中的一种，也就是">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>分类 | OKX</title>
+    <title>区块链60讲 第20集：什么是双花问题？ | OKX</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -359,152 +363,479 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                欧易
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "注册欧易交易所账户，领取价值高达60000$数字货币盲盒，享受20%交易手续费折扣",
-                            
-                                "一起来探索 Web3 领域，一起成长、学习、实现财富自由之路。",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">区块链60讲 第20集：什么是双花问题？</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/btc/">
+                                <span class="chip bg-color">btc</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE60%E8%AE%B2/">
+                                <span class="chip bg-color">区块链60讲</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%96%B0%E6%89%8B%E5%AD%A6%E9%99%A2/" class="post-category">
+                                新手学院
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-03-14
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <video width="100%" height="100%" controls>
+<source src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/0619516.mp4">
+</video>
+
+<p>之前的课程，我们已经讲过了区块链的四大核心技术都有哪些，它们共同决定了区块链的整个基础框架。可是在区块链网络中，还有一些问题是四大核心技术也没有办法完全解决的，比如网络拥堵问题、效率问题等等。而今天，我们要说的就是其中的一种，也就是双花问题。</p>
+<p>所谓双花问题，顾名思义，就是一笔钱被重复花了两次。比如，我们微信钱包里有100块钱，我们先去饭店吃了顿饭，结果微信出了bug，这一笔钱并没有被银行同步，还留在钱包里，于是我们又能拿着同样的100块钱去看场电影，这就属于双花问题。</p>
+<p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/60%E8%AE%B22.jpg?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p>
+<p>一般来说，双花问题分为两种情况：一种是记账前双花，比如同一笔钱，因为银行同步延迟的问题，被多次使用，像我们刚才举的例子就是这种情况；另一种是记账后的双花，一笔钱花出去，银行已经记账，但如果你攻击银行，从银行账本上删除了这笔花费，就可以再花一次了，即双花。</p>
+<p>那在现实生活和区块链中，我们该如何解决双花问题呢？</p>
+<p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/60%E8%AE%B23.jpg?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p>
+<p>在现实生活中，作为收款者来说，比如商店老板，防范第一种双花很容易，不以付款者的交易记录为依据，只有确认自己账户上钱到账才交付商品。比如用微信支付，不仅要看用户出示的手机支付页面，也要看自己的手机上是否收到。当然，如果很小额的交易，生意又忙，用户也是街坊邻里，只看支付页面也可以，这个小风险商店可以承担。</p>
+<p>在区块链应用中，防范未记账前的双花也与之类似，最好的解决方案也是等记账后，再完成交易，大额交易一般都是走这种路径。不过，如果金额很小，人又熟，交易是可以不记入区块链的，即没有记账的情况下，也可以完成支付。这叫“零确认支付”，只不过这种方式，收款方是要承担被双花的风险。</p>
+<p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/60%E8%AE%B24.png.jpg?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p>
+<p>而防范第二种双花就比较难了。在生活中，比如微信已经记了账，但黑客攻击了微信的服务器，商户收款的交易记录一旦丢失，商户自然就受到了损失，付款者又可以使用原来的这笔钱。不过，这种情况极少出现，既然要记账，那一定是非常小心保存账本的。</p>
+<p>区块链应用也类似，整个区块链技术的核心就是保障账本的安全，记了账就不能被双花。但安全不是绝对的，即使记了账，仍然有可能被双花。因为，区块链应用不是依靠中央银行这样的机构的权威来保障账本安全的，而是依靠分布世界各地的节点都保存统一份的账本，并且由全世界的矿工用算力来竞争记账，产生完全一致的新账页的。</p>
+<p>当有人掌握了全网51%以上的算力时，就能够将刚刚记过的账页作废，把里面的一笔花费恢复成没被花掉的状态。这就是记账后的双花了，这种攻击方法叫“51%攻击”。这种双花相对于记账前的双花比较难实现，因为掌握51%算力需要很多钱。但如果双花的收益足够大，攻击仍然是有可能的。怎么办呢？</p>
+<p>解决的办法是，等待更多确认。51%的算力要作废最新账页，其成功概率是51%，但作废连续两个新账页的概率就是51%*51%&#x3D;26%，作废3个的概率是13.3%，作废6个的概率只有0.46%了。如果攻击者没有掌握51%的算力，只掌握20%的算力，那么攻击成功的概率就只有0.0064%了。</p>
+<p>这样，问题就简单了。商户可以根据交易金额的大小来决定如何防范双花。</p>
+<p>如果交易金额很小，比如卖支铅笔，完全可以接受零确认，对用户既省时又贴心。万一双花也不在乎。如果交易金额大一些，比如卖件衣服，那建议等待一个确认就可以了。不会有黑客为了你一套衣服动用51%的算力发起攻击的。如果交易金额很大，比如买钻石，那就要小心了。要根据全网算力的成本估算一下需要多少个确认，金额越大，需要的确认数就越多。</p>
+<p><img src="https://static.coinall.ltd/cdn/assets/plugins/2020/03/60%E8%AE%B25.jpg?x-oss-process=image/auto-orient,1/quality,q_90/format,webp" alt="img"></p>
+<p>比如这个区块链是10分钟确认一次，全网51%的算力每10分钟的成本是10万元。你卖的钻石价值100万元。那么你至少要10个确认以上才能交付钻石。最好是20个以上确认。</p>
+<p>总之，预防双花攻击，一个基本的原理就是，让攻击者赔钱的概率远远高于你被双花的概率。</p>
+<p>当然，为了预防双花问题，区块链本身从技术方面，也在共识机制的基础上，引入了一些其他技术，比如时间戳和UTXO模型。通过它们，进一步提高区块链的记账安全性、以及双花的作恶成本。至于它们具体是如何解决的，容小K君卖个关子，我们下节课再说~</p>
+<p>注：这些例子数据都是为了简便给的估值，真实的攻击成本收益分析非常复杂。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">穹顶社区</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://okxcn.github.io/posts/20.html">http://okxcn.github.io/posts/20.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">穹顶社区</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/btc/">
+                                    <span class="chip bg-color">btc</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE60%E8%AE%B2/">
+                                    <span class="chip bg-color">区块链60讲</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    $(function () {
+        $('.tabs').tabs();
+    });
 </script>
 
-
+            
+        </div>
     </div>
-</div>
-
-<main class="content">
 
     
 
-<div id="category-cloud" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
-            </div>
-            <div class="tag-chips">
-                
-                
-                
-                <a href="/categories/%E6%96%B0%E6%89%8B%E5%AD%A6%E9%99%A2/" title="新手学院: 26">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F9EBEA;">新手学院
-                        <span class="tag-length">26</span>
-                    </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/21.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="区块链60讲 第21集：什么是UTXO模型？">
+                        
+                        <span class="card-title">区块链60讲 第21集：什么是UTXO模型？</span>
+                    </div>
                 </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-14
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%96%B0%E6%89%8B%E5%AD%A6%E9%99%A2/" class="post-category">
+                                    新手学院
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
                 
-                
-                <a href="/categories/%E4%BA%A4%E6%98%93%E6%89%80%E6%B3%A8%E5%86%8C/" title="交易所注册: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F5EEF8;">交易所注册
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/btc/">
+                        <span class="chip bg-color">btc</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE60%E8%AE%B2/">
+                        <span class="chip bg-color">区块链60讲</span>
+                    </a>
+                    
+                </div>
                 
             </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/19.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="区块链60讲 第19集：四大核心技术的作用是什么？">
+                        
+                        <span class="card-title">区块链60讲 第19集：四大核心技术的作用是什么？</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%96%B0%E6%89%8B%E5%AD%A6%E9%99%A2/" class="post-category">
+                                    新手学院
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/btc/">
+                        <span class="chip bg-color">btc</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE60%E8%AE%B2/">
+                        <span class="chip bg-color">区块链60讲</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
         </div>
     </div>
 </div>
 
+<!-- TOC 悬浮按钮. -->
 
-    
-    <style type="text/css">
-    #category-radar {
-        width: 100%;
-        height: 360px;
-    }
-</style>
-
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="category-radar" class="card-content"></div>
-    </div>
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
 </div>
 
-<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    let radarChart = echarts.init(document.getElementById('category-radar'));
 
-    
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
 
-    let option = {
-        title: {
-            left: 'center',
-            text: '文章分类雷达图',
-            textStyle: {
-                fontWeight: 500,
-                fontSize: 22
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
             }
-        },
-        tooltip: {},
-        radar: {
-            name: {
-                textStyle: {
-                    color: '#3C4858'
-                }
-            },
-            indicator: [{"name":"新手学院","max":27},{"name":"交易所注册","max":27}],
-            nameGap: 5,
-            center: ['50%','55%'],
-            radius: '66%'
-        },
-        series: [{
-            type: 'radar',
-            color: ['#3ecf8e'],
-            itemStyle: {normal: {areaStyle: {type: 'default'}}},
-            data : [
-                {
-                    value : [26,1],
-                    name : '文章分类数量'
-                }
-            ]
-        }]
-    };
+        });
 
-    radarChart.setOption(option);
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
 </script>
 
     
 
 </main>
+
+
 
 
     <footer class="page-footer bg-color">
